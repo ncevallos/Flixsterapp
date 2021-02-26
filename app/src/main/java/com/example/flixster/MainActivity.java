@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     movies.addAll(Movie.fromJsonArray(results));
                     movieAdapters.notifyDataSetChanged();
                     Log.i(TAG, "Movies " + movies.size());
-                } catch (JSONException e) {
+                } catch (JSONException | ParseException e) {
                     Log.e(TAG, "Hit json exception", e);
                     e.printStackTrace();
                 }
